@@ -1,11 +1,15 @@
-const html = require("express").Router();
+const router = require("express").Router();
 const path = require("path");
-const { readFromFile, readAndAppend } = require("../fsUtils");
+// const { readFromFile, readAndAppend } = require("../fsUtils");
 
 //GET route for retrieving all the
 
-html.get("/notes", (req, res) => {
-  readFromFile(path.join(__dirname, "../public/notes.html"));
+//FIX THIS
+router.get("/notes", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/notes.html"));
 });
 
-module.exports = html;
+router.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/index.html"));
+});
+module.exports = router;

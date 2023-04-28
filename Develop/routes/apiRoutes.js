@@ -1,11 +1,15 @@
 const api = require("express").Router();
 const { readFromFile, readAndAppend } = require("../fsUtils");
+path = require("path");
 
 //GET route for retrieving all the api
 
-api.use("/notes", (req, res) =>
-  readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)))
-);
+api.get("/notes", (req, res) => {
+  if (error) {
+    return console.log(error);
+  }
+  res.json(JSON.parse(notes));
+});
 
 //POST Route
 
