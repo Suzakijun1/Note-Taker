@@ -1,4 +1,5 @@
 const api = require("express").Router();
+const fs = require("fs");
 
 //GET route for retrieving all the api
 
