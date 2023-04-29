@@ -31,7 +31,6 @@ router.post("/notes", (req, res) => {
     console.log(`Delete request for noteID: ${noteId}`);
     let data = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
     const newData = data.filter((note) => note.id !== noteId);
-
     fs.writeFileSync("./db/db.json", JSON.stringify(newData));
     console.log(`Successfully deleted note with id: ${noteId}`);
     res.json(newData);

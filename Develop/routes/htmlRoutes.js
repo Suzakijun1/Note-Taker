@@ -1,10 +1,7 @@
 const router = require("express").Router();
 const path = require("path");
-// const { readFromFile, readAndAppend } = require("../fsUtils");
 
-//GET route for retrieving all the
-
-//FIX THIS
+//GET route
 router.get("/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/notes.html"));
 });
