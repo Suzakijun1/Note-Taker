@@ -1,18 +1,18 @@
 const router = require("express").Router();
 // const { readFromFile, readAndAppend } = require("../fsUtils");
 path = require("path");
-
-const { json } = require("express");
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 
 //GET route for retrieving all the api
 
 router.get("/notes", (req, res) => {
-  if (error) {
-    return console.log(error);
-  }
-  res.json(JSON.parse(notes));
+  // fs.readFile("./db/db.json").then((data) => {
+  //   res.json(JSON.parse(data));
+  // });
+  let data = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+  console.log("GET request: " + JSON.stringify(data));
+  res.json(data);
 });
 
 //POST Route for note
